@@ -9,7 +9,7 @@ export class PremieredController {
 
   @Post()
   create(@Body() createPremieredDto: CreatePremieredDto) {
-    return this.premieredService.create(createPremieredDto);
+    return this.premieredService.createPremiered(createPremieredDto);
   }
 
   @Get()
@@ -18,8 +18,8 @@ export class PremieredController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.premieredService.findOne(+id);
+  findOne(@Param('id') id: any) {
+    return this.premieredService.findOne(id);
   }
 
   @Patch(':id')
