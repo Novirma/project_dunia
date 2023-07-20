@@ -8,5 +8,6 @@ insert into bookmart_anime.premiered (
 );
 
 select * from bookmart_anime.premiered;
+select count (premier_id) from bookmart_anime.premiered;
 
 insert into bookmart_anime.

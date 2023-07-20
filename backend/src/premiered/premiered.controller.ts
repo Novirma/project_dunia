@@ -24,7 +24,7 @@ export class PremieredController {
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updatePremieredDto: UpdatePremieredDto) {
-    return this.premieredService.update(+id, updatePremieredDto);
+    return this.premieredService.update(id, updatePremieredDto);
   }
 
   @Delete(':id')
