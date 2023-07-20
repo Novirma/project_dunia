@@ -86,7 +86,19 @@ export class PremieredService {
     }
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} premiered`;
+  async remove(id: string) {
+    try {
+      const result = await premiered.destroy({
+        where: {
+          premier_id : id
+        }
+      })
+      return {
+        status : 200,
+        message : `Data Premiered Id ${id} berhasil di Delete`
+      }
+    } catch (error) {
+      return error.message
+    }
   }
 }

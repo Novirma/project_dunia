@@ -29,6 +29,6 @@ export class PremieredController {
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.premieredService.remove(+id);
+    return this.premieredService.remove(id);
   }
 }
