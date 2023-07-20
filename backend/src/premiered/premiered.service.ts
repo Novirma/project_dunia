@@ -15,7 +15,7 @@ export class PremieredService {
 
   async findAll() {
     try {
-      const result:any = await this.sequelize.query('select * from bookmart_anime.premiered')
+      const result:any = await this.sequelize.query('select * from bookmart_anime.premiered order by id')
       let name = result[0]
       console.log(name);
       

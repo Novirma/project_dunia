@@ -11,5 +11,13 @@
 	- Jalankan PgScriptnya "stg -D postgres -d minpro_lab -u postgres -x root -h localhost -p 5432 -o models/bootcamp -s bootcamp -i"
 * Mempersiapkan Models dan Sequelize Query :
 	- Sequelize Query disiapkan dengan impor dan memasukkannya ke constructor di dalam service
+* Membuat BackEnd Method CRUD untuk Tabel Premiered :
+	- Dengan Query Terminal 'nest g res premiered'
+	- Pada Module import 'SequelizeModule'
+	- Pada service import Sequelize from 'sequelize-typescript'
+* Membuat BackEnd Method CRUD untuk Tabel Genres :
+	- Dengan Query Terminal 'nest g res genres'
+	- Pada Module import 'SequelizeModule'
+	- Pada service import Sequelize from 'sequelize-typescript'
 
 

@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { BookmartModule } from './bookmart/bookmart.module';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { PremieredModule } from './premiered/premiered.module';
+import { GenresModule } from './genres/genres.module';
 
 @Module({
   imports: [
@@ -20,7 +21,8 @@ import { PremieredModule } from './premiered/premiered.module';
       }),
     }),
     BookmartModule,
-    PremieredModule],
+    PremieredModule,
+    GenresModule],
   controllers: [AppController],
   providers: [AppService],
 })

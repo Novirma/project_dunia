@@ -4,6 +4,8 @@ CREATE table bookmart_anime.genres (
 	information TEXT
 )
 
+alter table bookmart_anime.genres add column id serial;
+
 CREATE table bookmart_anime.genres_detail (
 	genres_detail_anime_id VARCHAR(30),
 	genres_detail_genre_id VARCHAR(30)
