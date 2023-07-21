@@ -27,6 +27,8 @@ CREATE table bookmart_anime.anime (
 	rating NUMERIC
 )
 
+alter table bookmart_anime.anime add column url_img VARCHAR(255);
+
 CREATE table bookmart_anime.premiered (
 	premier_id VARCHAR(30),
 	name VARCHAR(100)
