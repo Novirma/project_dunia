@@ -7,6 +7,6 @@ import { premiered } from 'models/bookmart';
 @Module({
   imports: [SequelizeModule.forFeature([premiered])],
   controllers: [PremieredController],
-  providers: [PremieredService]
+  providers: [PremieredService],
 })
 export class PremieredModule {}

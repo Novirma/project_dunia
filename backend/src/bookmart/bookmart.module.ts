@@ -5,8 +5,8 @@ import { SequelizeModule } from '@nestjs/sequelize/dist';
 import { anime, genres, premiered } from 'models/bookmart';
 
 @Module({
-  imports: [SequelizeModule.forFeature([anime,premiered])],
+  imports: [SequelizeModule.forFeature([anime, premiered])],
   controllers: [BookmartController],
-  providers: [BookmartService]
+  providers: [BookmartService],
 })
 export class BookmartModule {}

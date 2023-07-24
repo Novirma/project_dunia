@@ -22,6 +22,8 @@ export interface animeAttributes {
   source?: string;
   duration?: number;
   rating?: string;
+  url_img?: string;
+  id?: number;
 }
 
 @Table({ tableName: 'anime', schema: 'bookmart_anime', timestamps: false })
@@ -67,4 +69,17 @@ export class anime
 
   @Column({ allowNull: true, type: DataType.DECIMAL })
   rating?: string;
+
+  @Column({ allowNull: true, type: DataType.STRING(255) })
+  url_img?: string;
+
+  @Column({
+    primaryKey: true,
+    type: DataType.INTEGER,
+    defaultValue: Sequelize.literal(
+      "nextval('bookmart_anime.anime_id_seq'::regclass)",
+    ),
+  })
+  @Index({ name: 'anime_pkey', using: 'btree', unique: true })
+  id?: number;
 }

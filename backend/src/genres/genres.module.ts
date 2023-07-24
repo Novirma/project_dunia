@@ -7,6 +7,6 @@ import { genres } from 'models/bookmart';
 @Module({
   imports: [SequelizeModule.forFeature([genres])],
   controllers: [GenresController],
-  providers: [GenresService]
+  providers: [GenresService],
 })
 export class GenresModule {}

@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { PremieredService } from './premiered.service';
 import { CreatePremieredDto } from './dto/create-premiered.dto';
 import { UpdatePremieredDto } from './dto/update-premiered.dto';
@@ -23,7 +31,10 @@ export class PremieredController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updatePremieredDto: UpdatePremieredDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updatePremieredDto: UpdatePremieredDto,
+  ) {
     return this.premieredService.update(id, updatePremieredDto);
   }
 

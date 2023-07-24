@@ -6,8 +6,7 @@ import { Sequelize } from 'sequelize-typescript';
 
 @Injectable()
 export class BookmartService {
-
-  constructor(private sequelize: Sequelize){}
+  constructor(private sequelize: Sequelize) {}
 
   create(createBookmartDto: CreateBookmartDto) {
     return 'This action adds a new bookmart';
@@ -16,12 +15,14 @@ export class BookmartService {
   async findAll(): Promise<any> {
     try {
       // const result = await premiered.findAll();
-      const result = await this.sequelize.query('select * from bookmart_anime.anime')
+      const result = await this.sequelize.query(
+        'select * from bookmart_anime.anime',
+      );
       // console.log(result);
-      
+
       return result[0];
     } catch (error) {
-      return error.message
+      return error.message;
     }
   }
 

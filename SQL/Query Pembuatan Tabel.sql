@@ -10,6 +10,7 @@ CREATE table bookmart_anime.genres_detail (
 	genres_detail_anime_id VARCHAR(30),
 	genres_detail_genre_id VARCHAR(30)
 )
+alter table bookmart_anime.genres_detail add column id serial;
 
 CREATE table bookmart_anime.anime (
 	anime_id varchar(30),
@@ -28,6 +29,7 @@ CREATE table bookmart_anime.anime (
 )
 
 alter table bookmart_anime.anime add column url_img VARCHAR(255);
+alter table bookmart_anime.anime add column id serial;
 
 CREATE table bookmart_anime.premiered (
 	premier_id VARCHAR(30),
