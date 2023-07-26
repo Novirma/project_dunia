@@ -4,6 +4,7 @@ import { anime, genres_detail } from 'models/bookmart';
 import { Sequelize } from 'sequelize-typescript';
 import { CreateAnimeDto } from './dto/create-anime.dto';
 import { UpdateAnimeDto } from './dto/update-anime.dto';
+import { promises as fsPromises } from 'fs';
 
 @Injectable()
 export class AnimeService {
@@ -148,8 +149,48 @@ export class AnimeService {
     return `This action returns a #${id} anime`;
   }
 
-  update(id: number, updateAnimeDto: UpdateAnimeDto) {
-    return `This action updates a #${id} anime`;
+  async update(id: string, dataBody: any,file: any) {
+    try {
+      const idBody = await anime.findOne({
+        where:{anime_id : id}
+      });
+      // const idBody = await anime.findByPk(id)
+      if (!idBody) {throw new Error('Data Anime Tidak DiTemukan!!')};
+      const path = './public/gambar/'+ idBody.url_img;
+      if (fsPromises.access(path)){
+        await fsPromises.unlink(path);
+      }
+      const updateAnime = await anime.update(
+        {
+          title : dataBody.title,
+          synopsis : dataBody.synopsis,
+          type : dataBody.type,
+          episodes : dataBody.episodes,
+          episodes_watching : dataBody.episodes_watching,
+          status_anime : dataBody.status_anime,
+          status_watching : dataBody.status_watching,
+          premiered : dataBody.premiered,
+          authors : dataBody.authors,
+          source : dataBody.source,
+          duration : dataBody.duration,
+          rating : dataBody.rating,
+          url_img : file.filename
+        },
+        {
+          where: {anime_id:id}
+        }
+      )
+      // console.log(idBody);
+      // return idBody
+      return {
+        status : 200,
+        message : `Data Anime Id ${id} telah di update`
+      }
+
+      
+    } catch (error) {
+      return error.message
+    }
   }
 
   remove(id: number) {

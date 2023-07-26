@@ -64,8 +64,9 @@ export class AnimeController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateAnimeDto: UpdateAnimeDto) {
-    return this.animeService.update(+id, updateAnimeDto);
+  @UseInterceptors(FileInterceptor('gambar',storage))
+  update(@Param('id') id: string, @Body() updateAnimeDto: UpdateAnimeDto, @UploadedFile() file: Express.Multer.File) {
+    return this.animeService.update(id, updateAnimeDto, file);
   }
 
   @Delete(':id')
