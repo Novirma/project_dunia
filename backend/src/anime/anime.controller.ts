@@ -60,7 +60,7 @@ export class AnimeController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.animeService.findOne(+id);
+    return this.animeService.findOne(id);
   }
 
   @Patch(':id')

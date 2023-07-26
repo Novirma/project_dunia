@@ -141,12 +141,33 @@ export class AnimeService {
     
   }
 
-  findAll() {
-    return `This action returns all anime`;
+  async findAll() {
+    try {
+      const result = await anime.findAll();
+      return{
+        status : 200,
+        message : "Request Sukses!!",
+        result : result
+      }
+    } catch (error) {
+      
+    }
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} anime`;
+  async findOne(id: string) {
+    try {
+      const result = await anime.findOne({
+        where:{anime_id:id}
+      })
+      if (!result) throw new Error(`Data Anime dengan Id ${id} tidak di temukan!!`)
+      return{
+        status : 200,
+        message : "Request Sukses!!",
+        result : result
+      }
+    } catch (error) {
+      return error.message
+    }
   }
 
   async update(id: string, dataBody: any,file: any) {
